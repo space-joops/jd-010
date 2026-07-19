@@ -1,3 +1,4 @@
+import Link from "next/link";
 import InstallCard from "@/components/InstallCard";
 import PetSvg from "@/components/PetSvg";
 import PreregisterForm from "@/components/PreregisterForm";
@@ -89,10 +90,17 @@ export default function Home() {
             15분마다 당신의 하늘 위로 돌아옵니다.
           </p>
 
+          <Link
+            href="/arcade"
+            className="mt-8 rounded-full border border-mint/50 bg-mint/10 px-6 py-3 text-sm font-bold text-mint transition hover:bg-mint/20"
+          >
+            🎮 100가지 미니게임 먼저 해보기
+          </Link>
+
           <a
             href="#concept"
             aria-label="게임 소개로 스크롤"
-            className="anim-drift mt-12 text-2xl text-mint"
+            className="anim-drift mt-10 text-2xl text-mint"
           >
             ↓
           </a>
@@ -119,6 +127,32 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* ---------- 아케이드 (100종 미니게임 실험) ---------- */}
+      <section className="relative mx-auto max-w-md px-6 pb-4">
+        <Link
+          href="/arcade"
+          className="group block rounded-2xl border border-star/30 bg-gradient-to-br from-white/10 to-white/5 p-6 transition hover:border-star/60"
+        >
+          <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden>
+            <rect x="4" y="12" width="32" height="18" rx="9" fill="#ffe9a8" />
+            <circle cx="13" cy="21" r="2.4" fill="#0b1026" />
+            <rect x="24.5" y="18.5" width="5" height="5" rx="1" fill="#f9a8d4" />
+            <rect x="29" y="23" width="4" height="4" rx="1" fill="#7de8c3" />
+          </svg>
+          <h3 className="mt-4 text-lg font-bold text-star">
+            우주쓰레기 청소 아케이드
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-white/70">
+            출시 전 특별 실험 — <strong className="text-white/90">100가지</strong>{" "}
+            청소 미니게임을 먼저 플레이하고 별점을 남겨주세요. 가장 사랑받은
+            게임이 본편의 놀이가 됩니다.
+          </p>
+          <span className="mt-4 inline-block text-sm font-bold text-star group-hover:underline">
+            지금 플레이하기 →
+          </span>
+        </Link>
       </section>
 
       {/* ---------- 출시 소식 받기 (사전등록 + PWA 설치) ---------- */}
