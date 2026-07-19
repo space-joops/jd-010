@@ -33,7 +33,17 @@ const EXPERIMENTS = [
   { id: "d27", title: "외계 생명체 DNA 해독 (Alien DNA Decoding)", desc: "외계 유전자 서열 패턴 매칭" },
   { id: "d28", title: "달 탐사차 배터리 생존 (Lunar Rover Battery Survival)", desc: "크레이터의 그림자 피하기" },
   { id: "d29", title: "궤도 엘리베이터 화물 하역 (Orbital Elevator Cargo)", desc: "도착지점 정밀 속도 제어" },
-  { id: "d30", title: "외계 행성 대기 분석 (Exoplanet Atmosphere Analysis)", desc: "스펙트럼 흡수선 맞추기" }
+  { id: "d30", title: "외계 행성 대기 분석 (Exoplanet Atmosphere Analysis)", desc: "스펙트럼 흡수선 맞추기" },
+  { id: "d31", title: "펄서 항법 (Pulsar Navigation)", desc: "중성자별 깜빡임을 이용한 위치 보정" },
+  { id: "d32", title: "반물질 엔진 가동 (Antimatter Engine)", desc: "반물질과 물질의 정확한 비율 조절" },
+  { id: "d33", title: "오르트 구름 스윙 (Oort Cloud Slingshot)", desc: "혜성을 튕겨서 태양계 밖으로 날려보내기" },
+  { id: "d34", title: "스윙바이 궤도 계산 (Gravity Assist Calculator)", desc: "여러 행성을 연속으로 스윙바이" },
+  { id: "d35", title: "우주 쓰레기 그물망 (Space Net Catcher)", desc: "회전 그물망을 던져 파편 수거" },
+  { id: "d36", title: "위성 궤도 수리 (Orbital Repair)", desc: "인공위성 기판 미세 조정 퍼즐" },
+  { id: "d37", title: "소행성 충돌 회피 (Asteroid Dodge)", desc: "소행성 벨트 통과 회피 기동" },
+  { id: "d38", title: "가스 행성 탐사 (Gas Giant Probe)", desc: "폭풍을 피해 대기 깊숙이 탐사선 강하" },
+  { id: "d39", title: "망원경 초점 맞추기 (Telescope Calibration)", desc: "거울을 미세 조정해 선명한 은하 찾기" },
+  { id: "d40", title: "초신성 폭발 탈출 (Supernova Escape)", desc: "항성 붕괴 전 워프 탈출" }
 ];
 
 export default function ExperimentsHub() {
