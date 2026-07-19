@@ -8,7 +8,7 @@ const DT = 0.8;
 const MAX_TRAJ_STEPS = 120;
 const POWER_MULT = 0.08;
 
-const calcTrajectory = (sx, sy, svx, svy, bHoles) => {
+const calcTrajectory = (sx: number, sy: number, svx: number, svy: number, bHoles: any[]) => {
     let x = sx, y = sy, vx = svx, vy = svy;
     const pts = [];
     for(let i=0; i<MAX_TRAJ_STEPS; i++) {
@@ -46,13 +46,13 @@ export default function Game() {
     const latestLevel = useRef(1);
 
     const [shipPos, setShipPos] = useState({ x: W/2, y: H - 50 });
-    const [blackHoles, setBlackHoles] = useState([]);
+    const [blackHoles, setBlackHoles] = useState<any[]>([]);
     const [portal, setPortal] = useState({ x: W/2, y: 50, r: 25 });
     
-    const [dragStart, setDragStart] = useState(null);
-    const [dragCurrent, setDragCurrent] = useState(null);
-    const [trajectory, setTrajectory] = useState([]);
-    const [trail, setTrail] = useState([]);
+    const [dragStart, setDragStart] = useState<any>(null);
+    const [dragCurrent, setDragCurrent] = useState<any>(null);
+    const [trajectory, setTrajectory] = useState<any[]>([]);
+    const [trail, setTrail] = useState<any[]>([]);
     
     const [stars] = useState(() => Array.from({length: 60}, () => ({
         x: Math.random() * W,
@@ -61,12 +61,12 @@ export default function Game() {
         o: 0.1 + Math.random() * 0.7
     })));
 
-    const requestRef = useRef();
+    const requestRef = useRef<number | null>(null);
     const stateRef = useRef({
         ship: { x: W/2, y: H - 50, vx: 0, vy: 0 },
-        blackHoles: [],
+        blackHoles: [] as any[],
         portal: { x: W/2, y: 50, r: 25 },
-        trail: [],
+        trail: [] as any[],
         gameState: 'start',
     });
 
@@ -74,7 +74,7 @@ export default function Game() {
         latestLevel.current = level;
     }, [level]);
 
-    const initLevel = useCallback((levelIndex) => {
+    const initLevel = useCallback((levelIndex: number) => {
         const shipX = 50 + Math.random() * (W - 100);
         const portalX = 50 + Math.random() * (W - 100);
         
@@ -183,7 +183,7 @@ export default function Game() {
         };
     }, []);
 
-    const handlePointerDown = (e) => {
+    const handlePointerDown = (e: any) => {
         if (gameState !== 'aim') return;
         const rect = e.currentTarget.getBoundingClientRect();
         const scaleX = W / rect.width;
@@ -194,7 +194,7 @@ export default function Game() {
         setDragCurrent({ x, y });
     };
     
-    const handlePointerMove = (e) => {
+    const handlePointerMove = (e: any) => {
         if (gameState !== 'aim' || !dragStart) return;
         const rect = e.currentTarget.getBoundingClientRect();
         const scaleX = W / rect.width;
