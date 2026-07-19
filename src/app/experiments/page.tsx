@@ -43,7 +43,17 @@ const EXPERIMENTS = [
   { id: "d37", title: "소행성 충돌 회피 (Asteroid Dodge)", desc: "소행성 벨트 통과 회피 기동" },
   { id: "d38", title: "가스 행성 탐사 (Gas Giant Probe)", desc: "폭풍을 피해 대기 깊숙이 탐사선 강하" },
   { id: "d39", title: "망원경 초점 맞추기 (Telescope Calibration)", desc: "거울을 미세 조정해 선명한 은하 찾기" },
-  { id: "d40", title: "초신성 폭발 탈출 (Supernova Escape)", desc: "항성 붕괴 전 워프 탈출" }
+  { id: "d40", title: "초신성 폭발 탈출 (Supernova Escape)", desc: "항성 붕괴 전 워프 탈출" },
+  { id: "d41", title: "외계 식물 채집 (Alien Flora Collection)", desc: "독성 식물을 피해 표본 채집" },
+  { id: "d42", title: "궤도 폭격 (Orbital Bombardment)", desc: "지상 목표물 타격 타이밍 슈팅" },
+  { id: "d43", title: "블랙홀 사건의 지평선 (Event Horizon)", desc: "중력을 이용한 아슬아슬한 탈출" },
+  { id: "d44", title: "탐사선 도킹 (Probe Docking)", desc: "회전하는 정거장에 탐사선 도킹" },
+  { id: "d45", title: "혜성 방어 (Comet Shield)", desc: "위성을 배치하여 지구 방어" },
+  { id: "d46", title: "우주 광부 (Space Miner)", desc: "소행성 코어 레이저 채굴" },
+  { id: "d47", title: "시간 지연 통신 (Time Delay Comms)", desc: "통신 딜레이를 예측해 항로 제어" },
+  { id: "d48", title: "행성 테라포밍 (Planet Terraforming)", desc: "온도/대기/수분 밸런스 맞추기" },
+  { id: "d49", title: "태양 흑점 관측 (Sunspot Observer)", desc: "플레어를 피해 흑점 촬영" },
+  { id: "d50", title: "성간 워프 (Interstellar Warp)", desc: "올바른 웜홀 순서대로 통과하기" }
 ];
 
 export default function ExperimentsHub() {
