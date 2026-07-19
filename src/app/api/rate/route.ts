@@ -29,9 +29,10 @@ export async function POST(req: Request) {
   }
 
   // TODO(Phase 3): 영속 저장소에 저장하도록 교체
+  // v=2: 아케이드 리뉴얼로 id의 의미가 v1과 다르다 — 로그 분석 시 반드시 버전으로 구분
   console.log(
-    `[rate] ${new Date().toISOString()} ${variant.id} stars=${stars} ` +
-      `objective=${variant.objective} control=${variant.control} hazard=${variant.hazard} theme=${variant.theme}`,
+    `[rate] ${new Date().toISOString()} v=2 ${variant.id} stars=${stars} ` +
+      `objective=${variant.objective} control=${variant.control} character=${variant.character} palette=${variant.palette}`,
   );
 
   return NextResponse.json({ ok: true });
