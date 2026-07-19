@@ -1,0 +1,91 @@
+"use client";
+
+import Link from "next/link";
+import Stars from "@/components/Stars";
+
+const EXPERIMENTS = [
+  { id: "d1", title: "궤도 슬링샷 (Orbital Slingshot)", desc: "행성의 중력을 이용한 궤도 퍼즐" },
+  { id: "d2", title: "로버 정밀 착륙 (Rover Landing)", desc: "하강 속도와 역추진 미세 조작" },
+  { id: "d3", title: "외계 신호 해독 (Wow! Signal)", desc: "노이즈 속 진짜 주파수 찾기: 노이즈 속 주파수 다이얼 맞추기" },
+  { id: "d4", title: "우주정거장 6자유도 도킹 (ISS Docking)", desc: "RCS 트러스터를 이용한 정밀 도킹" },
+  { id: "d5", title: "블랙홀 사건의 지평선 (Event Horizon)", desc: "중력 우물에서 추진력을 모아 탈출" },
+  { id: "d6", title: "라그랑주 점 탐색 (Lagrange Point)", desc: "안정적인 중력 평형점 찾기 밸런스 게임" },
+  { id: "d7", title: "태양풍 실드 가동 (Solar Flare)", desc: "태양 흑점 폭발 예측 방어 타이밍" },
+  { id: "d8", title: "골디락스 존 테라포밍 (Terraforming)", desc: "온도, 대기, 산소 3요소 밸런싱" },
+  { id: "d9", title: "Max-Q 로켓 단 분리 (Staging)", desc: "최대 동압 구간을 버티는 단 분리" },
+  { id: "d10", title: "회전 소행성 채굴 (Asteroid Mining)", desc: "빠르게 회전하는 소행성에 작살 꽂기" },
+  { id: "d11", title: "화성 탐사차 태양광 패널 청소 (Mars Rover Solar Panel Cleaning)", desc: "제한 시간 내에 패널의 먼지를 닦아내기" },
+  { id: "d12", title: "우주 쓰레기 수거 (Space Debris Cleanup)", desc: "레이저와 그물로 궤도의 쓰레기 정리" },
+  { id: "d13", title: "별자리 이어 그리기 (Constellation Mapping)", desc: "흩어진 별들을 이어 별자리를 그리는 퍼즐" },
+  { id: "d14", title: "소행성 요격 (Asteroid Defense)", desc: "지구로 향하는 소행성 궤적 예측 요격" },
+  { id: "d15", title: "우주 식물 가꾸기 (Space Botany)", desc: "무중력 온실 환경 밸런스 시뮬레이션" },
+  { id: "d16", title: "웜홀 통과 (Wormhole Navigation)", desc: "왜곡된 시공간 터널 장애물 피하기" },
+  { id: "d17", title: "펄서 신호 맞추기 (Pulsar Timing)", desc: "중성자별의 전파 주기에 맞추는 리듬 게임" },
+  { id: "d18", title: "달 기지 전력 분배 (Lunar Base Power Management)", desc: "위기 상황에 맞는 생명유지장치 전력 퍼즐" },
+  { id: "d19", title: "혜성 샘플 채취 (Comet Sample Return)", desc: "고속 혜성 착륙 및 코어 샘플 채취" },
+  { id: "d20", title: "은하계 무역선 (Galactic Trading)", desc: "항성계를 넘나드는 무역 타이쿤" },
+  { id: "d21", title: "우주 엘리베이터 건설 (Space Elevator Construction)", desc: "무게 중심 밸런싱 퍼즐" },
+  { id: "d22", title: "우주 기지 모듈 조립 (Space Station Assembly)", desc: "궤도 상에서의 모듈 테트리스" },
+  { id: "d23", title: "광속 여행 타임 딜레이 (Light Speed Time Delay)", desc: "상대성 이론 시차 적응 게임" },
+  { id: "d24", title: "솔라 세일 돛 전개 (Solar Sail Deployment)", desc: "항성풍에 맞게 돛 각도 조절" },
+  { id: "d25", title: "위성 궤도 교란 방어 (Orbit Disruption Defense)", desc: "태양풍과 운석을 막아내는 쉴드" },
+  { id: "d26", title: "화성 대기 진입 (Mars Atmospheric Entry)", desc: "진입 각도와 마찰열 정밀 제어" },
+  { id: "d27", title: "외계 생명체 DNA 해독 (Alien DNA Decoding)", desc: "외계 유전자 서열 패턴 매칭" },
+  { id: "d28", title: "달 탐사차 배터리 생존 (Lunar Rover Battery Survival)", desc: "크레이터의 그림자 피하기" },
+  { id: "d29", title: "궤도 엘리베이터 화물 하역 (Orbital Elevator Cargo)", desc: "도착지점 정밀 속도 제어" },
+  { id: "d30", title: "외계 행성 대기 분석 (Exoplanet Atmosphere Analysis)", desc: "스펙트럼 흡수선 맞추기" },
+  { id: "d31", title: "펄서 항법 (Pulsar Navigation)", desc: "중성자별 깜빡임을 이용한 위치 보정" },
+  { id: "d32", title: "반물질 엔진 가동 (Antimatter Engine)", desc: "반물질과 물질의 정확한 비율 조절" },
+  { id: "d33", title: "오르트 구름 스윙 (Oort Cloud Slingshot)", desc: "혜성을 튕겨서 태양계 밖으로 날려보내기" },
+  { id: "d34", title: "스윙바이 궤도 계산 (Gravity Assist Calculator)", desc: "여러 행성을 연속으로 스윙바이" },
+  { id: "d35", title: "우주 쓰레기 그물망 (Space Net Catcher)", desc: "회전 그물망을 던져 파편 수거" },
+  { id: "d36", title: "위성 궤도 수리 (Orbital Repair)", desc: "인공위성 기판 미세 조정 퍼즐" },
+  { id: "d37", title: "소행성 충돌 회피 (Asteroid Dodge)", desc: "소행성 벨트 통과 회피 기동" },
+  { id: "d38", title: "가스 행성 탐사 (Gas Giant Probe)", desc: "폭풍을 피해 대기 깊숙이 탐사선 강하" },
+  { id: "d39", title: "망원경 초점 맞추기 (Telescope Calibration)", desc: "거울을 미세 조정해 선명한 은하 찾기" },
+  { id: "d40", title: "초신성 폭발 탈출 (Supernova Escape)", desc: "항성 붕괴 전 워프 탈출" },
+  { id: "d41", title: "외계 식물 채집 (Alien Flora Collection)", desc: "독성 식물을 피해 표본 채집" },
+  { id: "d42", title: "궤도 폭격 (Orbital Bombardment)", desc: "지상 목표물 타격 타이밍 슈팅" },
+  { id: "d43", title: "블랙홀 사건의 지평선 (Event Horizon)", desc: "중력을 이용한 아슬아슬한 탈출" },
+  { id: "d44", title: "탐사선 도킹 (Probe Docking)", desc: "회전하는 정거장에 탐사선 도킹" },
+  { id: "d45", title: "혜성 방어 (Comet Shield)", desc: "위성을 배치하여 지구 방어" },
+  { id: "d46", title: "우주 광부 (Space Miner)", desc: "소행성 코어 레이저 채굴" },
+  { id: "d47", title: "시간 지연 통신 (Time Delay Comms)", desc: "통신 딜레이를 예측해 항로 제어" },
+  { id: "d48", title: "행성 테라포밍 (Planet Terraforming)", desc: "온도/대기/수분 밸런스 맞추기" },
+  { id: "d49", title: "태양 흑점 관측 (Sunspot Observer)", desc: "플레어를 피해 흑점 촬영" },
+  { id: "d50", title: "성간 워프 (Interstellar Warp)", desc: "올바른 웜홀 순서대로 통과하기" }
+];
+
+export default function ExperimentsHub() {
+  return (
+    <main className="min-h-screen bg-[#0b1026] p-6 relative overflow-y-auto font-sans pb-20">
+      <Stars />
+      
+      <div className="max-w-2xl mx-auto relative z-10">
+        <header className="text-center my-10">
+          <h1 className="text-4xl font-bold text-white mb-3">우주 덕후 연구소</h1>
+          <p className="text-[#7de8c3]">100가지 스페이스 미니게임 프로젝트</p>
+        </header>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {EXPERIMENTS.map((exp) => (
+            <Link 
+              key={exp.id} 
+              href={`/${exp.id}`}
+              className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#7de8c3]/50 transition-all group flex flex-col justify-center"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="bg-[#7de8c3] text-[#0b1026] text-xs font-bold px-2 py-1 rounded">
+                  {exp.id.toUpperCase()}
+                </span>
+                <span className="text-white/30 group-hover:text-white/70 transition-colors">→</span>
+              </div>
+              <h2 className="text-lg font-bold text-white mb-1">{exp.title}</h2>
+              <p className="text-sm text-[#f9a8d4]/80">{exp.desc || Object.values(exp)[2]}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
