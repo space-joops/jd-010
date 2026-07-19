@@ -71,7 +71,7 @@ export default function Game() {
   
   const stateRef = useRef<GameState>(state);
   const keysRef = useRef({ up: false, left: false, right: false });
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
 
   const startGame = () => {
     stateRef.current = {

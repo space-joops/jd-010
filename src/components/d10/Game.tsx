@@ -33,8 +33,8 @@ export default function Game() {
   const [harpoonY, setHarpoonY] = useState(410);
   const [message, setMessage] = useState('');
   
-  const requestRef = useRef<number>();
-  const lastTimeRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
 
   const generateTargets = useCallback(() => {
     const newTargets: Target[] = [];
@@ -80,7 +80,7 @@ export default function Game() {
       return;
     }
 
-    if (lastTimeRef.current !== undefined) {
+    if (lastTimeRef.current !== null && lastTimeRef.current !== undefined) {
       const deltaTime = Math.min(time - lastTimeRef.current, 50);
       
       setAsteroidRotation(prev => (prev + rotationSpeed * direction * (deltaTime / 16)) % 360);

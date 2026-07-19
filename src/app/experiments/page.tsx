@@ -6,7 +6,7 @@ import Stars from "@/components/Stars";
 const EXPERIMENTS = [
   { id: "d1", title: "궤도 슬링샷 (Orbital Slingshot)", desc: "행성의 중력을 이용한 궤도 퍼즐" },
   { id: "d2", title: "로버 정밀 착륙 (Rover Landing)", desc: "하강 속도와 역추진 미세 조작" },
-  { id: "d3", title: "외계 신호 해독 (Wow! Signal)", 노이즈 속 진짜 주파수 찾기: "노이즈 속 주파수 다이얼 맞추기" },
+  { id: "d3", title: "외계 신호 해독 (Wow! Signal)", desc: "노이즈 속 진짜 주파수 찾기: 노이즈 속 주파수 다이얼 맞추기" },
   { id: "d4", title: "우주정거장 6자유도 도킹 (ISS Docking)", desc: "RCS 트러스터를 이용한 정밀 도킹" },
   { id: "d5", title: "블랙홀 사건의 지평선 (Event Horizon)", desc: "중력 우물에서 추진력을 모아 탈출" },
   { id: "d6", title: "라그랑주 점 탐색 (Lagrange Point)", desc: "안정적인 중력 평형점 찾기 밸런스 게임" },
