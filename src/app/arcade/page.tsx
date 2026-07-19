@@ -21,10 +21,11 @@ export default function ArcadePage() {
           우주쓰레기 청소 아케이드
         </h1>
         <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
-          목표 5종 × 조작 2종 × 위험 2종 × 테마 5종 —{" "}
-          <strong className="text-mint">100가지 조합</strong>의 미니게임이에요.
-          마음에 드는 게임에 <span className="text-star">별점</span>을 남겨주시면,
-          가장 사랑받은 조합이 아스트로펫 본편의 놀이가 됩니다.
+          컨셉 10종 × 조작 10종 — <strong className="text-mint">100가지 게임이
+          전부 다른 조합</strong>이에요. 캐릭터 10명과 팔레트 10가지, 게임마다
+          다른 효과음까지. 마음에 드는 게임에{" "}
+          <span className="text-star">별점</span>을 남겨주시면, 가장 사랑받은
+          조합이 아스트로펫 본편의 놀이가 됩니다.
         </p>
 
         <div className="mt-10">

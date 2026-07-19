@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import GameCanvas from "@/components/arcade/GameCanvas";
 import StarRating from "@/components/arcade/StarRating";
-import { CONTROLS, HAZARDS, THEMES, VARIANTS, getVariant } from "@/lib/arcade/variants";
+import {
+  CHARACTERS, CONTROLS, OBJECTIVES, PALETTES, VARIANTS, getVariant,
+} from "@/lib/arcade/variants";
 
 /** 100개 게임 페이지를 빌드 시 전부 정적 생성 */
 export function generateStaticParams() {
@@ -51,9 +53,21 @@ export default async function GamePage({
           {variant.name}
         </h1>
         <div className="mt-2 flex flex-wrap gap-1.5 text-[11px] text-white/60">
-          <span className="rounded-full bg-white/10 px-2 py-0.5">{CONTROLS[variant.control].label}</span>
-          <span className="rounded-full bg-white/10 px-2 py-0.5">{HAZARDS[variant.hazard].label}</span>
-          <span className="rounded-full bg-white/10 px-2 py-0.5">{THEMES[variant.theme].label}</span>
+          <span className="rounded-full bg-white/10 px-2 py-0.5">
+            {OBJECTIVES[variant.objective].short}
+          </span>
+          <span className="rounded-full bg-white/10 px-2 py-0.5">
+            🕹 {CONTROLS[variant.control].label}
+          </span>
+          <span className="rounded-full bg-white/10 px-2 py-0.5">
+            {CHARACTERS[variant.character].name} — {CHARACTERS[variant.character].blurb}
+          </span>
+          <span className="rounded-full bg-white/10 px-2 py-0.5">
+            {PALETTES[variant.palette].label}
+          </span>
+          {variant.satellites > 0 && (
+            <span className="rounded-full bg-white/10 px-2 py-0.5">🛰 위성 주의</span>
+          )}
         </div>
 
         <div className="mt-6">
@@ -64,7 +78,7 @@ export default async function GamePage({
           <StarRating gameId={variant.id} />
         </div>
 
-        <div className="mt-6 flex justify-between text-sm">
+        <div className="mt-6 flex justify-between gap-4 text-sm">
           <Link href={`/arcade/${prev.id}`} className="text-white/50 transition hover:text-mint">
             ← {prev.name}
           </Link>
