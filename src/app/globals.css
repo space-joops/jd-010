@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-space-dark: #0b1026;
+  --color-space-light: #241a4d;
+  --color-mint: #7de8c3;
+  --color-pink: #f9a8d4;
+  --color-lavender: #c4b5fd;
+  --color-star: #ffe9a8;
+}
+
+@layer utilities {
+  .anim-bob {
+    animation: bob 3s ease-in-out infinite;
+  }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+body {
+  background-color: var(--color-space-dark);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
