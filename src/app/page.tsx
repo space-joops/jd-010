@@ -1,4 +1,6 @@
+import InstallCard from "@/components/InstallCard";
 import PetSvg from "@/components/PetSvg";
+import PreregisterForm from "@/components/PreregisterForm";
 import Stars from "@/components/Stars";
 
 /** 컨셉 카드 아이콘도 전부 코드로 그린 SVG (이미지 에셋 금지 원칙) */
@@ -119,6 +121,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- 출시 소식 받기 (사전등록 + PWA 설치) ---------- */}
+      <section id="signup" className="relative mx-auto max-w-md px-6 py-20">
+        <h2 className="text-center text-2xl font-bold text-white">
+          가장 먼저 만나보세요
+        </h2>
+        <p className="mt-3 text-center text-sm text-white/60">
+          이메일 또는 앱 설치, 편한 쪽으로 출시 소식을 받아보세요.
+        </p>
+
+        <div className="mt-10 flex flex-col gap-5">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+            <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden>
+              <rect x="4" y="9" width="32" height="23" rx="4" fill="#7de8c3" />
+              <path
+                d="M6 12 l14 11 14-11"
+                fill="none"
+                stroke="#0b1026"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <circle cx="33" cy="9" r="4" fill="#f9a8d4" />
+            </svg>
+            <h3 className="mt-4 text-lg font-bold text-mint">이메일 사전등록</h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
+              출시 소식과 분양 시작 알림을 메일로 보내드려요.
+            </p>
+            <div className="mt-4">
+              <PreregisterForm />
+            </div>
+          </div>
+
+          <InstallCard />
+        </div>
+      </section>
+
       {/* ---------- CTA ---------- */}
       <section className="relative overflow-hidden px-6 py-24 text-center">
         <Stars />
@@ -131,6 +169,12 @@ export default function Home() {
             <br />
             먼 하늘에서 반짝이는 것이 보인다면, 그건 아마 우리예요.
           </p>
+          <a
+            href="#signup"
+            className="mt-8 inline-block rounded-full bg-mint px-8 py-3 text-sm font-bold text-ink transition hover:brightness-110"
+          >
+            출시 소식 받기
+          </a>
         </div>
       </section>
 
